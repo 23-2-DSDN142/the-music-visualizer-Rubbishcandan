@@ -1,10 +1,20 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background('#842cb0')
+  background(0)
   textFont('Helvetica'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
+
+  let color1 = color('#fad715')
+  let color2 = color('#9f53e8')
+  strokeWeight(3)
+  for(let i = 0; i<420; i++){
+  let gradientAmount = map(i,0,420,0,1)
+  let strokeColor = lerpColor(color1,color2,gradientAmount)
+  stroke(strokeColor)
+  line(0,i,width,i)
+  }
 
  //  let bar_spacing = height / 10;
   // let bar_height = width / 12;
@@ -15,14 +25,19 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    
 
    rect(width/3, barheight,50,100)
-   rect(width/2, barheight,50,100)
    rect(width/1.5, barheight,50,100)
 
-   var circlewidth = map(bass, 0 , 100, 0, 100)
+   //var circlewidth = map(bass, 0 , 100, 40, 60)
 
-   ellipse(640,500, circlewidth)
+   fill('#fa6700')
+   ellipse(640,350, 200)
 
-   triangle()
+   fill('#4b1445')
+   quad(0,720,1280,720,660,400,620,400)
+
+   
+
+ 
    // vocal bar is red
    //fill(200, 0, 0);
    //rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
