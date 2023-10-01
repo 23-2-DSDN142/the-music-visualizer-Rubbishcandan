@@ -16,6 +16,27 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(0,i,width,i)
   }
 
+  let othermap = map(other,0,100,0,40)
+  let lengthofline = 100
+  let linestart = 100 
+  let lineend = linestart-lengthofline 
+
+  for(let i = 1; i <= othermap; i++){
+  var linestep = i*10; 
+  line(linestart, linestep, lineend, linestep)
+  }
+  
+  let othermap2 = map(other,0,100,0,40)
+  let lengthofline2 = 100
+  let linestart2 = 1280 
+  let lineend2 = linestart2-lengthofline2 
+
+  for(let i = 1; i <= othermap2; i++){
+  var linestep2 = i*10; 
+  line(linestart2, linestep2, lineend2, linestep2)
+  }
+  
+
  //  let bar_spacing = height / 10;
   // let bar_height = width / 12;
   // let bar_pos_x = width / 2;
@@ -23,21 +44,26 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
    var barheight = map(drum, 0, 100, 50,500)
    
-
+   fill(0)
    rect(width/3, barheight,50,100)
    rect(width/1.5, barheight,50,100)
 
    //var circlewidth = map(bass, 0 , 100, 40, 60)
+
+ 
 
    fill('#fa6700')
    ellipse(640,350, 200)
 
    fill('#4b1445')
    quad(0,720,1280,720,660,400,620,400)
-
    
+   push()
+   fill(159, 83, 232,0)
+   rect(635,410,1300,10)
+   Pop()
 
- 
+
    // vocal bar is red
    //fill(200, 0, 0);
    //rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
