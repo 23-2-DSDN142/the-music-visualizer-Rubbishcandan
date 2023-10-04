@@ -5,6 +5,19 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   textFont('Helvetica'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
+ push()
+ stroke('#E93CAC');
+  let lengthofline3 = 1300
+  let linestart3 = 0
+  let lineend3 = linestart3 + lengthofline3
+  let linestep3 = 20;
+  let linestep4 = 15;
+
+  for(let i=1; i < 90; i++){
+    line(linestart3, linestep3 * i, lineend3, linestep3 * i)
+    line(linestep4 * i, linestart3, linestep4 * i, lineend3)
+  }
+pop()
 
   let color1 = color('#fad715')
   let color2 = color('#9f53e8')
@@ -16,26 +29,27 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(0,i,width,i)
   }
 
-  let othermap = map(other,0,100,0,40)
+  let drummap = map(drum,0,100,0,40)
   let lengthofline = 100
   let linestart = 100 
   let lineend = linestart-lengthofline 
 
-  for(let i = 1; i <= othermap; i++){
+  for(let i = 1; i <= drummap; i++){
   var linestep = i*10; 
   line(linestart, linestep, lineend, linestep)
   }
   
-  let othermap2 = map(other,0,100,0,40)
+  let drummap2 = map(drum,0,100,0,40)
   let lengthofline2 = 100
   let linestart2 = 1280 
   let lineend2 = linestart2-lengthofline2 
 
-  for(let i = 1; i <= othermap2; i++){
+  for(let i = 1; i <= drummap2; i++){
   var linestep2 = i*10; 
   line(linestart2, linestep2, lineend2, linestep2)
   }
-  
+
+
 
  //  let bar_spacing = height / 10;
   // let bar_height = width / 12;
@@ -44,24 +58,31 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
    var barheight = map(drum, 0, 100, 50,500)
    
-   fill(0)
-   rect(width/3, barheight,50,100)
-   rect(width/1.5, barheight,50,100)
 
-   //var circlewidth = map(bass, 0 , 100, 40, 60)
 
- 
+   var basscolourpulse = map(bass, 50 , 100, 0, 255)
+  push()
+  fill(29, 219, 219,basscolourpulse)
+  triangle(655,550,490,300,800,225)
+  pop()
 
    fill('#fa6700')
    ellipse(640,350, 200)
 
-   fill('#4b1445')
-   quad(0,720,1280,720,660,400,620,400)
-   
+
    push()
    fill(159, 83, 232,0)
    rect(635,410,1300,10)
-   Pop()
+   pop()
+
+   push()
+   fill('#4b1445')
+   quad(0,720,1280,720,660,400,620,400)
+   pop()
+  
+   //fill(0)
+   //rect(width/3, barheight,50,100)
+  // rect(width/1.5, barheight,50,100)
 
 
    // vocal bar is red
