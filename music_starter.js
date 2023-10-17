@@ -145,10 +145,17 @@ pop()
    rect(1225,BuildingY+5,40,BuildingHeight[0])
    pop()
 
+   push()
+   var vocalcolourpulse = map(vocal, 50 , 100, 0, 255)
+   textSize(50)
+   strokeWeight(10)
+   stroke(233, 60, 172,vocalcolourpulse)
    let w = 'Break the Rules'
    textFont('Courier')
    fill(0)
-   text(w, 530, 180)
+   text(w, 425, 180)
+   pop()
+
 
    //fill(0)
    //rect(width/3, barheight,50,100)
