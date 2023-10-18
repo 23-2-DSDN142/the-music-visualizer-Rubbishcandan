@@ -6,9 +6,11 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rectMode(CENTER)
   textSize(24);
 
- var BuildingHeight = [30,50,70]; 
+  var OtherHeightModifier = map(drum, 0, 100,0,50)
+ var BuildingHeight = [OtherHeightModifier+30,OtherHeightModifier+50,OtherHeightModifier+70]; 
  var BuildingColour = ['#dd78ae','#20b0b1','#f7f383','#ad7cb8']
  let BuildingY = 400
+
  push()
  stroke('#E93CAC');
   let lengthofline3 = 1300
@@ -58,10 +60,54 @@ pop()
  //  let bar_spacing = height / 10;
   // let bar_height = width / 12;
   // let bar_pos_x = width / 2;
- 
 
-   var barheight = map(drum, 0, 100, 50,500)
-   
+
+  push()
+  strokeWeight(2)
+  fill(BuildingColour[1])
+  rect(50,BuildingY+5,40,BuildingHeight[0])
+  fill(BuildingColour[0])
+  rect(100,BuildingY-15,50,BuildingHeight[2])
+  fill(BuildingColour[1])
+  rect(160,BuildingY-5,60,BuildingHeight[1])
+  fill(BuildingColour[2])
+  rect(215,BuildingY+5,40,BuildingHeight[0])
+  fill(BuildingColour[3])
+  rect(270,BuildingY-5,60,BuildingHeight[1])
+  fill(BuildingColour[2])
+  rect(330,BuildingY-15,50,BuildingHeight[2])
+  fill(BuildingColour[3])
+  rect(380,BuildingY+5,40,BuildingHeight[0])
+  fill(BuildingColour[0])
+  rect(430 ,BuildingY-15,50,BuildingHeight[2])
+  fill(BuildingColour[2])
+  rect(490,BuildingY-5,60,BuildingHeight[1])
+  fill(BuildingColour[0])
+  rect(780,BuildingY-15,50,BuildingHeight[2])
+  fill(BuildingColour[2])
+  rect(830,BuildingY+5,40,BuildingHeight[0])
+  fill(BuildingColour[3])
+  rect(885,BuildingY-5,60,BuildingHeight[1])
+  fill(BuildingColour[1])
+  rect(950,BuildingY-5,60,BuildingHeight[1])
+  fill(BuildingColour[2])
+  rect(1010,BuildingY-15,50,BuildingHeight[2])
+  fill(BuildingColour[0])
+  rect(1060,BuildingY+5,40,BuildingHeight[0])
+  fill(BuildingColour[3])
+  rect(1110,BuildingY-15,50,BuildingHeight[2])
+  fill(BuildingColour[1])
+  rect(1170,BuildingY-5,60,BuildingHeight[1])
+  fill(BuildingColour[0])
+  rect(1225,BuildingY+5,40,BuildingHeight[0])
+  pop()
+
+  
+  push()
+  noStroke()
+  fill(0)
+  rect(640,433,1300,26)
+  pop()   
 
 
    var basscolourpulse = map(bass, 50 , 100, 0, 255)
@@ -77,7 +123,7 @@ pop()
    push()
    noStroke()
    fill(159, 83, 232,255)
-   rect(635,410,1300,5)
+   rect(635,410,170,5)
    pop()
    
    push()
@@ -93,7 +139,6 @@ pop()
    pop()
 
 
-
    push()
    fill('#4b1445')
    quad(0,720,1280,720,660,400,620,400)
@@ -105,46 +150,7 @@ pop()
    triangle(640, 400, 780,740,500,740)
    pop()
 
-   push()
-   strokeWeight(2)
-   fill(BuildingColour[1])
-   rect(50,BuildingY+5,40,BuildingHeight[0])
-   fill(BuildingColour[0])
-   rect(100,BuildingY-15,50,BuildingHeight[2])
-   fill(BuildingColour[1])
-   rect(160,BuildingY-5,60,BuildingHeight[1])
-   fill(BuildingColour[2])
-   rect(215,BuildingY+5,40,BuildingHeight[0])
-   fill(BuildingColour[3])
-   rect(270,BuildingY-5,60,BuildingHeight[1])
-   fill(BuildingColour[2])
-   rect(330,BuildingY-15,50,BuildingHeight[2])
-   fill(BuildingColour[3])
-   rect(380,BuildingY+5,40,BuildingHeight[0])
-   fill(BuildingColour[0])
-   rect(430 ,BuildingY-15,50,BuildingHeight[2])
-   fill(BuildingColour[2])
-   rect(490,BuildingY-5,60,BuildingHeight[1])
-   fill(BuildingColour[0])
-   rect(780,BuildingY-15,50,BuildingHeight[2])
-   fill(BuildingColour[2])
-   rect(830,BuildingY+5,40,BuildingHeight[0])
-   fill(BuildingColour[3])
-   rect(885,BuildingY-5,60,BuildingHeight[1])
-   fill(BuildingColour[1])
-   rect(950,BuildingY-5,60,BuildingHeight[1])
-   fill(BuildingColour[2])
-   rect(1010,BuildingY-15,50,BuildingHeight[2])
-   fill(BuildingColour[0])
-   rect(1060,BuildingY+5,40,BuildingHeight[0])
-   fill(BuildingColour[3])
-   rect(1110,BuildingY-15,50,BuildingHeight[2])
-   fill(BuildingColour[1])
-   rect(1170,BuildingY-5,60,BuildingHeight[1])
-   fill(BuildingColour[0])
-   rect(1225,BuildingY+5,40,BuildingHeight[0])
-   pop()
-
+  
    push()
    var vocalcolourpulse = map(vocal, 50 , 100, 0, 255)
    textSize(50)
@@ -157,38 +163,4 @@ pop()
    pop()
 
 
-   //fill(0)
-   //rect(width/3, barheight,50,100)
-  // rect(width/1.5, barheight,50,100)
-
-
-   // vocal bar is red
-   //fill(200, 0, 0);
-   //rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
-   //fill(0);
-   //text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
- 
-   // drum bar is green
-   //fill(0, 200, 0);
-   //rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-   //fill(0);
-   //text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
-   // bass bar is blue
-   //fill(50, 50, 240);
-   //rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-   //fill(0);
-   //text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
- 
-   // other bar is white
-   //fill(200, 200, 200);
-   //rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-   //fill(0);
-   //text"other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-   //fill(255, 255, 0);
- 
-   // display "words"
-   //textAlign(CENTER);
-   //textSize(vocal);
-   //text(words, width/2, height/3);
 }
