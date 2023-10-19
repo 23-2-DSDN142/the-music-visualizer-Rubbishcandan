@@ -11,8 +11,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  var BuildingColour = ['#dd78ae','#20b0b1','#f7f383','#ad7cb8']
  let BuildingY = 400
 
+ var GridPulse = map(other, 60, 75,2,4.5)
  push()
  stroke('#E93CAC');
+ strokeWeight(GridPulse)
   let lengthofline3 = 1300
   let linestart3 = 0
   let lineend3 = linestart3 + lengthofline3
@@ -54,12 +56,6 @@ pop()
   var linestep2 = i*10; 
   line(linestart2, linestep2, lineend2, linestep2)
   }
-
-
-
- //  let bar_spacing = height / 10;
-  // let bar_height = width / 12;
-  // let bar_pos_x = width / 2;
 
 
   push()
