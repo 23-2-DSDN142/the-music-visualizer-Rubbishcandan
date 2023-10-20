@@ -11,7 +11,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  var BuildingColour = ['#dd78ae','#20b0b1','#f7f383','#ad7cb8'] //teal,pink,yellow and greenish colour
  let BuildingY = 400
 
- var GridPulse = map(other, 60, 75,2,4.5) //map for making pink lines move
+ var GridPulse = map(other, 55, 80,2,4.5) //map for making pink lines move
  push()
  stroke('#E93CAC'); //pink
  strokeWeight(GridPulse)
